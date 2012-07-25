@@ -23,7 +23,22 @@ class CimpayViewCimpay extends JView
       return false;
     }
     
-    // Display the view
-    parent::display($tpl);
+    $user=& JFactory::getUser();
+    if ($user->guest || $user->id == 0)
+      parent::display('');
+    } else {
+      parent::display($tpl);
+    }
   }
+
+  function isLogged()
+  {
+    
+    if (!$user->guest)
+    {
+      $userId = (int) $user->get('id');
+    }
+  }
+
+
 }
