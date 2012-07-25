@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5.0" method="upgrade"> 
+  <name>COM_CIMPAY</name>
+  <!-- The following elements are optional and free of formatting constraints -->
+  <creationDate>July 2012</creationDate>
+  <author>Daniel Blanco Rojas</author>
+  <authorEmail>daniel.blancorojass@gmail.com</authorEmail>
+  <authorUrl>http://www.danielblancorojas.com</authorUrl>
+  <copyright>Use at your own risk</copyright>
+  <license>http://opensource.org/comment/935</license>
+  <!--  The version string is recorded in the components table -->
+  <version>0.0.8</version>
+  <description>COM_CIMPAY_DESCRIPTION</description>
+ 
+  <install> <!-- Runs on install -->
+    <sql>
+      <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+    </sql>
+  </install>
+  <uninstall> <!-- Runs on uninstall -->
+    <sql>
+      <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+    </sql>
+  </uninstall>
+  <update> <!-- Runs on update; New in 2.5 -->
+    <schemas>
+      <schemapath type="mysql">sql/updates/mysql</schemapath>
+    </schemas>
+  </update>
+ 
+  <!-- Site Main File Copy Section -->
+  <!-- Note the folder attribute: This attribute describes the folder
+    to copy FROM in the package to install therefore files copied
+    in this section are copied from /site/ in the package -->
+  <files folder="site">
+    <filename>index.html</filename>
+    <filename>cimpay.php</filename>
+    <filename>controller.php</filename>
+    <folder>views</folder>
+    <folder>models</folder>
+    <folder>language</folder> 
+  </files>
+
+  <media destination="com_cimpay" folder="media">
+    <filename>index.html</filename>
+    <folder>images</folder>
+  </media>
+ 
+  <administration>
+    <!-- Administration Menu Section -->
+    <menu>CIMPAY</menu>
+    <!-- Administration Main File Copy Section -->
+    <!-- Note the folder attribute: This attribute describes the folder
+      to copy FROM in the package to install therefore files copied
+      in this section are copied from /admin/ in the package -->
+    <files folder="admin">
+      <!-- Admin Main File Copy Section -->
+      <filename>index.html</filename>
+      <filename>config.xml</filename>
+      <filename>cimpay.php</filename>
+      <filename>controller.php</filename>
+      <!-- SQL files section -->
+      <folder>sql</folder>
+      <folder>tables</folder>
+      <folder>models</folder>
+      <folder>views</folder>
+      <folder>controllers</folder>
+    </files>
+    <languages folder="admin">
+      <language tag="en-GB">language/en-GB/en-GB.com_cimpay.ini</language>
+      <language tag="en-GB">language/en-GB/en-GB.com_cimpay.sys.ini</language>
+    </languages>
+  </administration>
+</extension>

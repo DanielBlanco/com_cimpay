@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addrulepath="/administrator/components/com_cimpay/models/rules">
+  <fieldset name="details">
+    <field name="id" type="hidden" />
+  </fieldset>
+  <fields name="params">
+    <fieldset name="params" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
+      <field
+        name="authnet_login"
+        type="text"
+        label="COM_CIMPAY_FIELD_AUTHNET_LOGIN_LABEL"
+        description="COM_CIMPAY_FIELD_AUTHNET_LOGIN_DESC"
+        default=""
+        size="20"
+      />
+      <field
+        name="authnet_transaction_key"
+        type="text"
+        label="COM_CIMPAY_FIELD_AUTHNET_TRANSACTION_KEY_LABEL"
+        description="COM_CIMPAY_FIELD_AUTHNET_TRANSACTION_KEY_DESC"
+        default=""
+        size="20"
+      />
+      <field
+        name="authnet_api_host"
+        type="text"
+        label="COM_CIMPAY_FIELD_AUTHNET_API_HOST_LABEL"
+        description="COM_CIMPAY_FIELD_AUTHNET_API_HOST_DESC"
+        default="apitest.authorize.net"
+        size="20"
+      />
+      <field
+        name="authnet_api_path"
+        type="text"
+        label="COM_CIMPAY_FIELD_AUTHNET_API_PATH_LABEL"
+        description="COM_CIMPAY_FIELD_AUTHNET_API_PATH_DESC"
+        default="/xml/v1/request.api"
+        size="20"
+      />
+    </fieldset>
+  </fields>
+</form>
