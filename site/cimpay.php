@@ -2,11 +2,11 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.error.log');
-$log = &JLog::getInstance('com_cimpay.log.php');
- 
-// import joomla controller library
+jimport('joomla.log.log');
 jimport('joomla.application.component.controller');
+
+// Add the logger.
+JLog::addLogger(array('text_file' => 'com_cimpay.log.php'));
 
 try {
   // Get an instance of the controller prefixed by Cimpay
@@ -21,12 +21,8 @@ try {
 } catch (Exception $e) {
   // create a user friendly error message
   $message = 'An exception occurred: '.$e->getMessage();  
-  // create entry array
-  $entry = array('LEVEL' => '1', 'STATUS' => "500", 'COMMENT' => $e->getMessage());
   // log the entry
-  $log->addEntry($entry);
-  // Raise a 500.
-  JError::raiseError(500, $message, $e);
+  JLog::add($message);
   // for good luck, make sure we do actually stop now!
   jexit($message);
 }

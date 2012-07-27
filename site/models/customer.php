@@ -3,12 +3,12 @@
 defined('_JEXEC') or die('Restricted access');
  
 // import Joomla modelitem library
-jimport('joomla.application.component.modelitem');
+jimport('joomla.application.component.model');
  
 /**
  * Customer Model
  */
-class CimpayModelCustomer extends JModelItem
+class CimpayModelCustomer extends JModel
 {
 
   protected $userId;
@@ -28,6 +28,20 @@ class CimpayModelCustomer extends JModelItem
   public function getTable($type = 'Customers', $prefix = 'CimpayTable', $config = array()) 
   {
     return JTable::getInstance($type, $prefix, $config);
+  }
+
+  /**
+   * 
+   */
+  public function createCustomerProfile() {
+    //$table = $this->getTable();
+    //$table->load($id);
+    $cimpay = $this->getInstance('cimpay', 'CimpayModel');
+    $params = $cimpay->getParams();
+    
+    $authnetLogin = $params->get('authnet_transaction_key')
+    $authnetTransactionKey = $params->get('authnet_transaction_key')
+    return AuthnetApi::merchant_authentication_block($authnetLogin, $authnetTransactionKey);
   }
  
   /**
@@ -114,4 +128,5 @@ class CimpayModelCustomer extends JModelItem
     $input = JFactory::getApplication()->input;
     return $input->getInt('id');
   }
+
 }

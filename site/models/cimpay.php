@@ -3,18 +3,19 @@
 defined('_JEXEC') or die('Restricted access');
  
 // import Joomla modelitem library
-jimport('joomla.application.component.modelitem');
+jimport('joomla.application.component.model');
  
 /**
  * Cimpay Model
  */
-class CimpayModelCimpay extends JModelItem
+class CimpayModelCimpay extends JModel
 {
 
   /**
    * @var string greeting
    */
   protected $greeting;
+  protected $params;
  
   /**
    * Returns a reference to the a Table object, always creating it.
@@ -36,7 +37,7 @@ class CimpayModelCimpay extends JModelItem
    */
   public function getGreeting() 
   {
-    if (!isset($this->msg)) 
+    if (!isset($this->greeting)) 
     {
       //request the selected id
       $id = $this->getRequestId();
@@ -47,6 +48,25 @@ class CimpayModelCimpay extends JModelItem
       $this->greeting = $table->greeting;
     }
     return $this->greeting;
+  }
+
+  /**
+   * Get the configuration parameters
+   * @return string The component settings.
+   */
+  public function getParams()
+  {
+    if (!isset($this->params))
+    {
+      //request the selected id
+      $id = $this->getRequestId();
+
+      $table = $this->getTable();
+      $table->load($id);
+
+      $this->params = $table->params;
+    }
+    return $this->params;
   }
  
   /**
