@@ -15,8 +15,18 @@ class CimpayViewCreate extends JView
   function display($tpl = null) 
   {
     // Assign data to the view
-    //$this->msg = $this->get('Greeting');
-    //$userId = & $this->get( 'UserId', 'customer' );
+    $user=& JFactory::getUser();
+    $this->email = $user->email;
+
+    // Split full name into first and last.
+    $pos = strrpos($user->name, ' ');
+    if ($pos === false) {
+      $this->first_name = trim($user->name);
+      $this->last_name = '';
+    } else {
+      $this->first_name = trim(substr($user->name, 0, $pos + 1));
+      $this->last_name = trim(substr($user->name, $pos));
+    }
  
     // Check for errors.
     if (count($errors = $this->get('Errors'))) 

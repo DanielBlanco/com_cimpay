@@ -54,11 +54,7 @@ class CimpayTableCimpay extends JTable
     {
       // Convert the params field to a registry.
       $params = new JRegistry;                 
-      // loadJSON is @deprecated    12.1  Use loadString passing JSON as the format instead.
-      // $params->loadString($this->item->params, 'JSON');
-      // "item" should not be present.
       $params->loadJSON($this->params);
- 
       $this->params = $params;
       return true;
     }
@@ -67,4 +63,5 @@ class CimpayTableCimpay extends JTable
       return false;
     }
   }
+
 }

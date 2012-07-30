@@ -54,18 +54,17 @@ class CimpayModelCimpay extends JModel
    * Get the configuration parameters
    * @return string The component settings.
    */
-  public function getParams()
+  public function getParams($refresh=false)
   {
-    if (!isset($this->params))
+    if (!isset($this->params) || $refresh)
     {
       //request the selected id
       $id = $this->getRequestId();
-
       $table = $this->getTable();
       $table->load($id);
-
       $this->params = $table->params;
     }
+
     return $this->params;
   }
  
