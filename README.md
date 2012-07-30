@@ -15,7 +15,3 @@ Log:
 * [0.0.3] Adding a menu type to the site part
 * [0.0.2] Adding a mock view
 * [0.0.1] Developing the Basic Component
-
-
-$g_loginname = "8Vdn7W6N"; // Keep this secure.
-$g_transactionkey = "76HG44w9uPFpjf2V"; // Keep this secure.
