@@ -6,9 +6,9 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
  
 /**
- * Config View
+ * Profiles View
  */
-class CimpayViewConfig extends JView
+class CimpayViewCustomers extends JView
 {
   /**
    * Config view display method
@@ -23,14 +23,18 @@ class CimpayViewConfig extends JView
       return false;
     }
 
+    // Retrieve the data.
+    $this->items = $this->get('Items');
+    $this->pagination = $this->get('Pagination');
+    
     // Set the toolbar
     $this->addToolBar();
 
-    // Display the template
-    parent::display($tpl);
-
     // Set the document
     $this->setDocument();
+
+    // Display the template
+    parent::display($tpl);
   }
 
  
@@ -41,6 +45,7 @@ class CimpayViewConfig extends JView
   {
     // The second parameter will be used to construct the css class for the title.
     JToolBarHelper::title(JText::_('COM_CIMPAY_MANAGER_CONFIG'), 'cimpay');
+    JToolBarHelper::custom( 'transactions.report', 'exec.png', 'exec.png', 'Transactions', false, false );
     JToolBarHelper::preferences('com_cimpay');
   }
 

@@ -3,5 +3,5 @@
 defined('_JEXEC') or die('Restricted Access');
 ?>
 <tr>
-  <td colspan="3">Authorize.net Customer Information Manager (CIM)</td>
+  <td colspan="7"><?php echo $this->pagination->getListFooter(); ?></td>
 </tr>

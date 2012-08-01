@@ -9,7 +9,7 @@
   <copyright>Use at your own risk</copyright>
   <license>http://opensource.org/comment/935</license>
   <!--  The version string is recorded in the components table -->
-  <version>0.0.10</version>
+  <version>0.0.11</version>
   <description>COM_CIMPAY_DESCRIPTION</description>
  
   <install> <!-- Runs on install -->
@@ -42,9 +42,10 @@
     <folder>lib</folder> 
   </files>
 
-  <media destination="com_cimpay" folder="media">
+  <media destination="com_cimpay" folder="assets">
     <filename>index.html</filename>
     <folder>images</folder>
+    <folder>stylesheets</folder>
   </media>
  
   <administration>
@@ -66,6 +67,7 @@
       <folder>models</folder>
       <folder>views</folder>
       <folder>controllers</folder>
+      <folder>lib</folder> 
     </files>
     <languages folder="admin">
       <language tag="en-GB">language/en-GB/en-GB.com_cimpay.ini</language>

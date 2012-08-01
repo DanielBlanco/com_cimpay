@@ -18,9 +18,11 @@ class CimpayController extends JController
   function display($cachable = false) 
   {
     // set default view if not set
-    JRequest::setVar('view', JRequest::getCmd('view', 'Config'));
- 
+    JRequest::setVar('view', JRequest::getCmd('view', 'Customers'));
+
     // call parent behavior
     parent::display($cachable);
+
   }
+
 }

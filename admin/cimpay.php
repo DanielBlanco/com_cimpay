@@ -3,9 +3,9 @@
 defined('_JEXEC') or die('Restricted access');
 
 // Set some global property
-$document = JFactory::getDocument();
-$document->addStyleDeclaration('.icon-48-cimpay {background-image: url(../media/com_cimpay/images/cimpay-48x48.png);}');
- 
+$doc =& JFactory::getDocument();
+$doc->addStyleSheet( '../media/com_cimpay/stylesheets/cimpay.css' );
+
 // import joomla controller library
 jimport('joomla.application.component.controller');
  

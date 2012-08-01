@@ -5,6 +5,7 @@ Joomla! 1.7+ module to handle Authorize.net Customer Information Manager (CIM) A
 
 Log:
 ----
+* [0.0.11] Listing the users from database in the backend.
 * [0.0.10] Storing the authorize.net information in our database.
 * [0.0.9] Adding a create customer profile form to the site part.
 * [0.0.8] Frontend detect consumer.
