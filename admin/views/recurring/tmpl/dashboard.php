@@ -5,11 +5,15 @@ defined('_JEXEC') or die('Restricted Access');
 // load tooltip behavior
 JHtml::_('behavior.tooltip');
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_cimpay'); ?>" method="post" name="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_cimpay'); ?>" method="post" id="adminForm">
+  <div style="display: none">
+    <input type="hidden" name="task" value="recurring.dashboard" />
+    <?php echo JHtml::_('form.token'); ?>
+  </div>
   <table class="cimpay-recurring-dashboard" border="0">
     <tr>
       <td>
-        <a href="#">
+        <a href="index.php?option=com_cimpay&task=cancel">
           <span class="icon-64-services">&#160;</span>
           Services
         </a>
