@@ -12,6 +12,7 @@ class AuthnetApi
   public $authnet_transaction_key = '';
   public $authnet_api_host ='';
   public $authnet_api_path = '';
+  public $authnet_validation_mode = 'oldLiveMode';
   
   public $customer_profile_id = '';
   public $customer_payment_id = '';

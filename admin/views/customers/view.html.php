@@ -45,6 +45,7 @@ class CimpayViewCustomers extends JView
   {
     // The second parameter will be used to construct the css class for the title.
     JToolBarHelper::title(JText::_('COM_CIMPAY_MANAGER_CONFIG'), 'cimpay');
+    JToolBarHelper::custom( 'recurring.index', 'recurring.png', 'recurring.png', 'Recurring Billing', false, false );
     JToolBarHelper::custom( 'transactions.report', 'exec.png', 'exec.png', 'Transactions', false, false );
     JToolBarHelper::preferences('com_cimpay');
   }

@@ -37,5 +37,17 @@
       default="/xml/v1/request.api"
       size="20"
     />
+    <field
+      name="authnet_validation_mode"
+      type="list"
+      label="COM_CIMPAY_FIELD_AUTHNET_VALIDATION_MODE_LABEL"
+      description="COM_CIMPAY_FIELD_AUTHNET_VALIDATION_MODE_DESC"
+      default="oldLiveMode"
+    >
+      <option value="none">None</option>
+      <option value="testMode">Test Mode</option>
+      <option value="liveMode">Live Mode</option>
+      <option value="oldLiveMode">Old Live Mode</option>
+    </field>
   </fieldset>
 </config>
