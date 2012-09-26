@@ -4,3 +4,71 @@
 .icon-32-exec {
   background-image: url(../images/icon-32-exec.png);
 }
+.icon-32-packages {
+  background-image: url(../images/icon-32-packages.png);
+}
+.icon-32-recurring {
+  background-image: url(../images/icon-32-recurring.png);
+}
+.icon-16-delete {
+  min-height: 16px;
+  min-width: 16px;
+  background-image: url(../images/icon-16-delete.png);
+}
+.icon-16-edit {
+  min-height: 16px;
+  min-width: 16px;
+  background-image: url(../images/icon-16-edit.png);
+}
+.cimpay-site-customer-transactions-table {
+  width: 100%;
+}
+.cimpay-recurring-dashboard {
+  margin: auto;
+  margin-top: 5%;
+  width: 100%;
+  border: 0 none;
+  text-align: center;
+}
+.cimpay-recurring-dashboard td {
+  text-align: center;
+}
+.cimpay-recurring-dashboard a {
+  font: bold 16px Arial,Helvetica,sans-serif;
+}
+.cimpay-recurring-dashboard a:hover {
+  text-decoration: none;
+}
+.icon-64-services {
+  display: block;
+  float: none;
+  margin: 0 auto;
+  cursor: pointer;
+  min-height: 64px;
+  min-width: 64px;
+  background-image: url(../images/icon-64-services.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.icon-64-packages {
+  display: block;
+  float: none;
+  margin: 0 auto;
+  cursor: pointer;
+  min-height: 64px;
+  min-width: 64px;
+  background-image: url(../images/icon-64-packages.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.icon-64-customers {
+  display: block;
+  float: none;
+  margin: 0 auto;
+  cursor: pointer;
+  min-height: 64px;
+  min-width: 64px;
+  background-image: url(../images/icon-64-customers.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
