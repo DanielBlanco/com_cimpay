@@ -61,6 +61,7 @@ class CimpayModelCustomer extends JModel
     $api->authnet_transaction_key = $params->get('authnet_transaction_key', 'no-key');
     $api->authnet_api_host = $params->get('authnet_api_host', 'apitest.authorize.net');
     $api->authnet_api_path = $params->get('authnet_api_path', '/xml/v1/request.api');
+    $api->authnet_validation_mode = $params->get('authnet_validation_mode', 'oldLiveMode');
 
     $api->customer_id = $userId;
     $api->email = $arguments['email'];
@@ -87,6 +88,9 @@ class CimpayModelCustomer extends JModel
         $errors[] = $record->getError();
         return false;
       }
+    } else {
+      $source['profile_id'] = $record->profile_id;
+      $api->customer_profile_id = $record->profile_id;
     }
 
     if (empty($record->payment_id)) {
@@ -100,6 +104,9 @@ class CimpayModelCustomer extends JModel
         $errors[] = $record->getError();
         return false;
       }
+    } else {
+      $source['payment_id'] = $record->payment_id;
+      $api->customer_payment_id = $record->payment_id;
     }
 
     if (empty($record->shipping_id)) {
@@ -113,6 +120,9 @@ class CimpayModelCustomer extends JModel
         $errors[] = $record->getError();
         return false;
       }
+    } else { // Not necessary :p
+      $source['shipping_id'] = $record->shipping_id; 
+      $api->customer_address_id = $record->shipping_id;
     }
 
     return true;

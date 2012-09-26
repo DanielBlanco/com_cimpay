@@ -4,6 +4,8 @@ defined('_JEXEC') or die('Restricted access');
 
 /**
  * Cimpay Helper for Authorize.net API.
+ *
+ * http://www.phpkode.com/source/s/authorize-net-cim-php-class-1-3/authorize-net-cim-php-class-1-3/authorizenet.cim.class.php
  */
 class AuthnetApi
 {
@@ -12,6 +14,7 @@ class AuthnetApi
   public $authnet_transaction_key = '';
   public $authnet_api_host ='';
   public $authnet_api_path = '';
+  public $authnet_validation_mode = 'oldLiveMode';
   
   public $customer_profile_id = '';
   public $customer_payment_id = '';
@@ -48,6 +51,7 @@ class AuthnetApi
       "<description></description>".
       "<email>" . $this->email . "</email>".
       "</profile>".
+      "<validationMode>none</validationMode>".
       "</createCustomerProfileRequest>";
     $r = $this->send_xml_request($xml);
     $r = $this->parse_api_response($r);
@@ -89,7 +93,7 @@ class AuthnetApi
        "</creditCard>".
       "</payment>".
       "</paymentProfile>".
-      "<validationMode>liveMode</validationMode>". // or testMode
+      "<validationMode>".$this->authnet_validation_mode."</validationMode>".
       "</createCustomerPaymentProfileRequest>";
     $response = $this->send_xml_request($xml);
     $parsed_response = $this->parse_api_response($response);
@@ -230,6 +234,9 @@ class AuthnetApi
     if ("Ok" != $parsedresponse->messages->resultCode) {
       foreach ($parsedresponse->messages->message as $msg) {
         $this->errors[] = '['.htmlspecialchars($msg->code).'] '.htmlspecialchars($msg->text);
+      }
+      if (isset($parsedresponse->validationDirectResponse)) {
+        JLog::add($parsedresponse->validationDirectResponse);
       }
     }
     return $parsedresponse;

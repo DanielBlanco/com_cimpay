@@ -21,6 +21,10 @@ class CimpayViewShow extends JView
       return false;
     }
     
+    // Retrieve the data.
+    $this->items = $this->get('Items');
+    //$this->pagination = $this->get('Pagination');
+
     parent::display($tpl);
   }
 

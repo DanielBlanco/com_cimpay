@@ -1,7 +1,6 @@
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
-
 jimport('joomla.log.log');
 jimport('joomla.application.component.controller');
 

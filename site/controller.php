@@ -78,6 +78,8 @@ class CimpayController extends JController
   function showProfile()
   {
     $view =& $this->getView( 'show', 'html' ); 
+    $view->setModel($this->getModel('Transactions'), true);
+
     return $view;
   }
 

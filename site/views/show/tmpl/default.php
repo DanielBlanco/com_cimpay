@@ -3,17 +3,38 @@
 defined('_JEXEC') or die('Restricted access');
 ?>
 <h1>Your Payment Profile</h1>
-<p class="cimpay-user-show">
-  Thank you for subscribing to Predator USA automatic payments!!
+<div class="cimpay-user-show">
+  <p>Thank you for subscribing to Predator USA automatic payments!!</p>
+  <h2>Your Transactions:</h2>
+  <table class="cimpay-site-customer-transactions-table" style="width:100%">
+    <thead><?php echo $this->loadTemplate('transactions_head');?></thead>
+    <tfoot><?php echo $this->loadTemplate('transactions_foot');?></tfoot>
+    <tbody><?php echo $this->loadTemplate('transactions_body');?></tbody>
+  </table>
+  </br>
+  </br>
+  <h2>Services Available:</h2>
+  <form id="cimpay-buy-service" action="?option=com_cimpay" method="post" class="cimpay-form">
+    <label for="cimpay-service">Service:</label>
+    <select name="cimpay_service" id="cimpay-service">
+      <option value="0"></option>
+    </select>
+    <br/>
+    <label for="cimpay-service">Package:</label>
+    <select name="cimpay_package" id="cimpay-package">
+      <option value="0"></option>
+    </select>
+    <br/>
+    <button type="submit" name="submit">Buy!</button>
+  </form>
   <br/>
-  <br/>
-  <b>Please Remember:</b>
-  <ul>
-    <li>Predator USA does NOT store credit card information.</li>
-    <li>All the information you entered was sent to Authorize.net for safe keeping.</li>
-    <li>If a charge is done to your Credit Card an Email Receipt will be sent to the email address that you provided.</li>
-    <li>To cancel your subscription send an email to info@predatorusa.com.</li>
-  </ul>
-</p>
-
+  <p>
+    <b>Please Remember:</b>
+    <ul>
+      <li>Predator USA does NOT store credit card information.</li>
+      <li>If a charge is done to your Credit Card an Email Receipt will be sent to the email address that you provided.</li>
+      <li>To cancel your subscription send an email to info@predatorusa.com.</li>
+    </ul>
+  </p>
+</div>
 

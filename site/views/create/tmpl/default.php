@@ -109,7 +109,7 @@ defined('_JEXEC') or die('Restricted access');
     </tr>
     <tr>
       <td>
-        <label for="authnet-profile-cc-expiration-date">Card Number</label>
+        <label for="authnet-profile-cc-expiration-date">Expiration Date</label>
       </td>
       <td>
         <input type="text" name="cc_expiration_date" value="" id="authnet-profile-cc-expiration-date" />
