@@ -20,7 +20,7 @@ JHtml::_('behavior.tooltip');
         </a>
       </td>
       <td>
-        <a href="<?php echo JRoute::_('index.php?option=com_cimpay&task=recurring_services.action_index'); ?>">
+        <a href="<?php echo JRoute::_('index.php?option=com_cimpay&task=recurring_packages.action_index'); ?>">
           <span class="icon-64-packages">&#160;</span>
           Packages
         </a>
