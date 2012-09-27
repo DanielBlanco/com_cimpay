@@ -13,13 +13,14 @@ JHtml::_('behavior.tooltip');
   <table class="cimpay-recurring-dashboard" border="0">
     <tr>
       <td>
-        <a href="index.php?option=com_cimpay&task=cancel">
+        
+        <a href="<?php echo JRoute::_('index.php?option=com_cimpay&task=recurring_services.action_index'); ?>">
           <span class="icon-64-services">&#160;</span>
           Services
         </a>
       </td>
       <td>
-        <a href="#">
+        <a href="<?php echo JRoute::_('index.php?option=com_cimpay&task=recurring_services.action_index'); ?>">
           <span class="icon-64-packages">&#160;</span>
           Packages
         </a>

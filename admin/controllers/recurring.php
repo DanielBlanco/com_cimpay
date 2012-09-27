@@ -16,21 +16,19 @@ jimport('joomla.application.component.controllerform');
  */
 class CimpayControllerRecurring extends JController
 {
-  /**
-   * Recurring index.
-   */
   function index() {
+    $this->dashboard();
+  }
+
+  function dashboard() {
     //$model = $this->getModel('Packages');
     $view =& $this->getView( 'recurring', 'html' ); 
     //$view->setModel( $model, true );
     $view->displayDashboard();
   }
 
-  /**
-   * Go back to home.
-   */
   function cancel() {
     $this->setRedirect( JRoute::_('index.php?option=com_cimpay') );
   }
-
+  
 }

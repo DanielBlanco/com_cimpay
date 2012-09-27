@@ -9,7 +9,7 @@
   <copyright>Use at your own risk</copyright>
   <license>http://opensource.org/comment/935</license>
   <!--  The version string is recorded in the components table -->
-  <version>0.1.3</version>
+  <version>0.1.4</version>
   <description>COM_CIMPAY_DESCRIPTION</description>
  
   <install> <!-- Runs on install -->
@@ -61,7 +61,7 @@
       <filename>config.xml</filename>
       <filename>cimpay.php</filename>
       <filename>controller.php</filename>
-      <!-- SQL files section -->
+      <!-- Folders -->
       <folder>sql</folder>
       <folder>tables</folder>
       <folder>models</folder>

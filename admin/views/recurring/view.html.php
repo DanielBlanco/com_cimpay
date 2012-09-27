@@ -24,7 +24,7 @@ class CimpayViewRecurring extends JView
     }
     
     // Set the toolbar
-    JRequest::setVar('hidemainmenu', true);
+    JRequest::setVar('hidemainmenu', false);
     JToolBarHelper::title(JText::_('COM_CIMPAY_RECURRING_INDEX'), 'cimpay');
     JToolBarHelper::cancel('recurring.cancel', 'JTOOLBAR_CLOSE');
     JToolBarHelper::preferences('com_cimpay');

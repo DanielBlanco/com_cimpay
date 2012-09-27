@@ -18,7 +18,8 @@ TODO
 
 Log:
 ----
-* [0.1.3] Adding a recurring services dashboard in the admin area.
+* [0.1.4] Added a recurring services CRUD section for the backend.
+* [0.1.3] Adding a recurring billing dashboard in the admin area.
 * [0.1.2] Adding a transactions table in the site's view.
 * [0.1.1] Adding 3 more tables to handle recurring billing.
 * [0.1.0] Adding field validationMode and testing with a production server.
@@ -55,7 +56,4 @@ Story:
 2. On Submit call transaction generator and create [period] transactions.
 3. Prevent double sign ins for packages.
 4. 
-
-
-
 
