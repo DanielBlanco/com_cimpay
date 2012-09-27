@@ -138,7 +138,9 @@ class CimpayModelRecurring_service extends JModel
     return $this->created_at;
   }
   public function setCreatedAt() {
-    $this->created_at = date("Y-m-d H:i:s");
+    if (!$this->id) {
+      $this->created_at = date("Y-m-d H:i:s");
+    }
   }
   public function getUpdatedAt() {
     return $this->updated_at;

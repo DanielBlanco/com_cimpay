@@ -26,7 +26,7 @@ JHtml::_('behavior.tooltip');
         </a>
       </td>
       <td>
-        <a href="#">
+        <a href="<?php echo JRoute::_('index.php?option=com_cimpay&task=recurring_customers.action_index'); ?>">
           <span class="icon-64-customers">&#160;</span>
           Customers
         </a>

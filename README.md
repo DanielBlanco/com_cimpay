@@ -18,6 +18,7 @@ TODO
 
 Log:
 ----
+* [0.1.6] Added a recurring customers CRUD section for the backend.
 * [0.1.5] Added a recurring packages CRUD section for the backend.
 * [0.1.4] Added a recurring services CRUD section for the backend.
 * [0.1.3] Adding a recurring billing dashboard in the admin area.

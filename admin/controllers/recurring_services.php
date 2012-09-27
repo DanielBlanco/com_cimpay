@@ -41,7 +41,7 @@ class CimpayControllerRecurring_services extends JController
     $total_cost = $cost_per_month * $months_to_bill;
     $id = (int)JRequest::getVar('id','0','post','INTEGER');
     if ($id > 0) {
-      $model->setId($id);
+      $model->load($id);
     }
 
     $model->setName(JRequest::getVar('name'));

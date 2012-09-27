@@ -39,7 +39,7 @@ class CimpayControllerRecurring_packages extends JController
 
     $id = (int)JRequest::getVar('id','0','post','INTEGER');
     if ($id > 0) {
-      $model->setId($id);
+      $model->load($id);
     }
     $model->setServiceId((int)JRequest::getVar('service_id', 0,'post','INTEGER'));
     $model->setName(JRequest::getVar('name'));
