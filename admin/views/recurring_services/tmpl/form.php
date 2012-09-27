@@ -60,8 +60,8 @@ $data =& $this->getModel();
       </td>
       <td>
         <select name="active" id="input-active">
-          <option value="1" <?php echo ($data->get('active') == 1 ? 'checked="checked"' : '') ?>>Active</option>
-          <option value="0" <?php echo ($data->get('active') == 0 ? 'checked="checked"' : '') ?>>Inactive</option>
+          <option value="1" <?php echo ($data->get('active') == 1 ? 'selected="selected"' : '') ?>>Active</option>
+          <option value="0" <?php echo ($data->get('active') == 0 ? 'selected="selected"' : '') ?>>Inactive</option>
         </select>
       </td>
       <td>If the service is active it is available for purchase.</td>

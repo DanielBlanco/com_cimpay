@@ -54,7 +54,10 @@ $data =& $this->getModel();
         <label for="input-recurring">Recurring:</label>
       </td>
       <td>
-        <input type="text" name="recurring" value="<?php echo ($data->get('recurring') == 1 ? 'true' : 'false' ) ?>" id="input-recurring" />
+        <select name="recurring" id="input-recurring">          
+          <option value="0" <?php echo ($data->get('recurring') == 0 ? 'selected="selected"' : '' ) ?>>No</option>
+          <option value="1" <?php echo ($data->get('recurring') == 1 ? 'selected="selected"' : '' ) ?>>Yes</option>
+        </select>
       </td>
       <td>True if this is a recurring payment package.</td>
     </tr>
@@ -65,7 +68,7 @@ $data =& $this->getModel();
       <td>
         <input type="text" name="discount" value="<?php echo $data->get('discount') ?>" id="input-discount" />
       </td>
-      <td>Discount to apply to this package invoices.</td>
+      <td>Discount percentage(%) for this payment package.</td>
     </tr>
     <tr>
       <td>
@@ -73,8 +76,8 @@ $data =& $this->getModel();
       </td>
       <td>
         <select name="active" id="input-active">
-          <option value="1" <?php echo ($data->get('active') == 1 ? 'checked="checked"' : '') ?>>Active</option>
-          <option value="0" <?php echo ($data->get('active') == 0 ? 'checked="checked"' : '') ?>>Inactive</option>
+          <option value="1" <?php echo ($data->get('active') == 1 ? 'selected="selected"' : '') ?>>Active</option>
+          <option value="0" <?php echo ($data->get('active') == 0 ? 'selected="selected"' : '') ?>>Inactive</option>
         </select>
       </td>
       <td>If the package is active it is available for purchase.</td>

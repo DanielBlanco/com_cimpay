@@ -12,7 +12,7 @@ defined('_JEXEC') or die('Restricted Access');
     <td><?php echo $item->service_id; ?></td>
     <td><?php echo $item->name; ?></td>
     <td><?php echo $item->description; ?></td>
-    <td><?php echo $item->months_to_bill; ?></td>
+    <td><?php echo $item->months_to_pay; ?></td>
     <td><?php echo $item->recurring == 1 ? 'Yes' : 'No'; ?></td>
     <td><?php echo $item->discount; ?></td>
     <td><?php echo $item->active == 1 ? 'Active' : 'Inactive'; ?></td>

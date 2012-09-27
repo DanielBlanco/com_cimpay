@@ -45,6 +45,7 @@ class CimpayViewRecurring_packages extends JView
       return false;
     }
     $this->setLayout('form');
+    $this->services = $this->get( 'Items', 'Recurring_services' );
 
     // Set the toolbar
     JRequest::setVar('hidemainmenu', true);
@@ -65,7 +66,7 @@ class CimpayViewRecurring_packages extends JView
       return false;
     }
     $this->setLayout('form');
-    //$model =& $this->getModel();
+    $this->services = $this->get( 'Items', 'Recurring_services' );
 
     // Set the toolbar
     JRequest::setVar('hidemainmenu', true);

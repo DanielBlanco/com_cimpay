@@ -27,9 +27,9 @@ class CimpayControllerRecurring_packages extends JController
   }
 
   function action_new() {
-    $model = $this->getModel( 'Recurring_package' );
     $view =& $this->getView( 'recurring_packages', 'html' ); 
-    $view->setModel( $model, true );
+    $view->setModel( $this->getModel( 'Recurring_package' ), true );
+    $view->setModel( $this->getModel( 'Recurring_services' ) );
     $view->displayNew();
   }
 
@@ -44,7 +44,8 @@ class CimpayControllerRecurring_packages extends JController
     $model->setServiceId((int)JRequest::getVar('service_id', 0,'post','INTEGER'));
     $model->setName(JRequest::getVar('name'));
     $model->setDescription(JRequest::getVar('description'));
-    $model->setMonthsToPaty(JRequest::getVar('months_to_pay', 1));
+    $model->setMonthsToPay(JRequest::getVar('months_to_pay', 1));
+    $model->setRecurring(JRequest::getVar('recurring', 0));
     $model->setActive(JRequest::getVar('active', 1));
     $model->setDiscount(JRequest::getVar('discount', 0));
     $model->setCreatedAt();
@@ -65,6 +66,7 @@ class CimpayControllerRecurring_packages extends JController
     $model->load($id);
     $view =& $this->getView( 'recurring_packages', 'html' ); 
     $view->setModel( $model, true );
+    $view->setModel( $this->getModel( 'Recurring_services' ) );
     $view->displayEdit();
   }
 
