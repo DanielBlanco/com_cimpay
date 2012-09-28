@@ -4,7 +4,7 @@ Joomla! 1.7+ module to handle Authorize.net Customer Information Manager (CIM) A
 
 Notes
 -----
-The module needs work but the following features work:
+The module needs more work, but the following features work:
 * Register users to Authorize.net.
 * Create transactions with a billing date.
 * Collect dues.
@@ -18,6 +18,10 @@ TODO
 
 Log:
 ----
+* [0.1.10] Added delegate destroys for recurring models
+* [0.1.9] Added a new column to cimpay table to handle internal invoice numbers.
+* [0.1.8] Added a new column to cimpay_transactions table to handle better the payment plans.
+* [0.1.7] Added a recurring transaction builder.
 * [0.1.6] Added a recurring customers CRUD section for the backend.
 * [0.1.5] Added a recurring packages CRUD section for the backend.
 * [0.1.4] Added a recurring services CRUD section for the backend.
@@ -42,16 +46,6 @@ Some Useful Information
 http://www.authorize.net/support/merchant/Transaction_Response/Response_Reason_Codes_and_Response_Reason_Text.htm
 http://forgetso.com/index.php?option=com_k2&view=item&id=10:creating-cron-jobs-with-jcron-and-the-joomla-library
 
-Specific to PredatorUSA
------------------------
-9U:
-* Transaction Generator:
-* Billing Packages:
-  :id               => Int
-  :name             => String: Name of the package (9U Package)
-  :description      => TEXT
-  :period           => Montly (1st of each month)
-  :amounts          => $ (Array of amounts, 100:100:100:100:100:100)
 
 Story:
 1. Sign in for 9U Training Package.

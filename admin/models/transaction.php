@@ -28,6 +28,7 @@ class CimpayModelTransaction extends JModel
   protected $order_invoice_number = '';
   protected $billing_date = '';
   protected $log_message = '';
+  protected $recurring_customer_plan = null;
 
   /**
    * Returns a reference to the a Table object, always creating it.
@@ -46,7 +47,7 @@ class CimpayModelTransaction extends JModel
       'id','status','customer_id','amount','shipping_amount','shipping_name',
       'shipping_description','item_id','item_name','item_description',
       'item_quantity','item_unit_price','order_invoice_number', 'billing_date',
-      'log_message'
+      'log_message', 'recurring_customer_plan'
     );
     foreach ($props as $var) {
       $record->$var = $this->$var;
@@ -58,14 +59,14 @@ class CimpayModelTransaction extends JModel
     return (int)$this->id;
   }
   public function setId($value) {
-    return $this->id = $value;
+    $this->id = $value;
   }
 
   public function getStatus() {
     return (int)$this->status;
   }
   public function setStatus($value) {
-    return $this->status = $value;
+    $this->status = $value;
   }
   public function isPending() {
     return $this->status == 0;
@@ -78,56 +79,56 @@ class CimpayModelTransaction extends JModel
     return (int)$this->customer_id;
   }
   public function setCustomerId($value) {
-    return $this->customer_id = $value;
+    $this->customer_id = $value;
   }
 
   public function getAmount() {
     return $this->amount;
   }
   public function setAmount($value) {
-    return $this->amount = $value;
+    $this->amount = $value;
   }
 
   public function getShippingAmount() {
     return $this->shipping_amount;
   }
   public function setShippingAmount($value) {
-    return $this->shipping_amount = $value;
+    $this->shipping_amount = $value;
   }
 
   public function getShippingName() {
     return $this->shipping_name;
   }
   public function setShippingName($value) {
-    return $this->shipping_name = $value;
+    $this->shipping_name = $value;
   }
 
   public function getShippingDescription() {
     return $this->shipping_description;
   }
   public function setShippingDescription($value) {
-    return $this->shipping_description = $value;
+    $this->shipping_description = $value;
   }
 
   public function getItemId() {
     return $this->item_id;
   }
   public function setItemId($value) {
-    return $this->item_id = $value;
+    $this->item_id = $value;
   }
 
   public function getItemName() {
     return $this->item_name;
   }
   public function setItemName($value) {
-    return $this->item_name = $value;
+    $this->item_name = $value;
   }
 
   public function getItemDescription() {
     return $this->item_description;
   }
   public function setItemDescription($value) {
-    return $this->item_description = $value;
+    $this->item_description = $value;
   }
 
   public function getItemQuantity() {
@@ -138,21 +139,21 @@ class CimpayModelTransaction extends JModel
     if ($value < 1) {
       $value = 1;
     }
-    return $this->item_quantity = $value;
+    $this->item_quantity = $value;
   }
 
   public function getItemUnitPrice() {
     return $this->item_unit_price;
   }
   public function setItemUnitPrice($value) {
-    return $this->item_unit_price = $value;
+    $this->item_unit_price = $value;
   }
  
   public function getOrderInvoiceNumber() {
     return $this->order_invoice_number;
   }
   public function setOrderInvoiceNumber($value) {
-    return $this->order_invoice_number = $value;
+    $this->order_invoice_number = $value;
   }
 
   public function getBillingDate() {
@@ -162,13 +163,19 @@ class CimpayModelTransaction extends JModel
     if (strlen($value) != 10) {
       $value = (String)date('Y-m-d');
     }
-    return $this->billing_date = $value;
+    $this->billing_date = $value;
   }
 
   public function getLogMessage() {
     return $this->log;
   }
   public function setLogMessage($value) {
-    return $this->log = $value;
+    $this->log = $value;
+  }
+  public function getRecurringCustomerPlan() {
+    return $this->recurring_customer_plan;
+  }
+  public function setRecurringCustomerPlan($value) {
+    $this->recurring_customer_plan = $value;
   }
 }

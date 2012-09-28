@@ -15,7 +15,7 @@ class CimpayTableRecurring_services extends JTable
   public $name = '';           //VARCHAR(100)
   public $description = '';    //TEXT
   public $active = 1;          //TINYINT(1)
-  public $start_at = null;     //DATE
+  public $start_at = null;     //VARCHAR(7) => YYYY-MM
   public $months_to_bill = 1;  //INT(11)
   public $total_cost = 0.0000; //DECIMAL(19,4)
   public $created_at = null;   //DATETIME

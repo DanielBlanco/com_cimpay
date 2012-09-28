@@ -16,7 +16,7 @@ class CimpayModelRecurring_service extends JModel
   protected $name = '';           //VARCHAR(100)
   protected $description = '';    //TEXT
   protected $active = 1;          //TINYINT(1)
-  protected $start_at = null;     //DATE
+  protected $start_at = null;     //VARCHAR(7) => YYYY-MM
   protected $months_to_bill = 1;  //INT(11)
   protected $total_cost = 0.0000; //DECIMAL(19,4)
   protected $created_at = null;   //DATETIME
@@ -41,7 +41,7 @@ class CimpayModelRecurring_service extends JModel
       $this->name = $record->name;
       $this->description = $record->description;
       $this->active = $record->active;
-      $this->start_at = (String)$record->start_at;
+      $this->start_at = $record->start_at;
       $this->months_to_bill = $record->months_to_bill;
       $this->total_cost = $record->total_cost;
       $this->created_at = $record->created_at;
@@ -107,15 +107,15 @@ class CimpayModelRecurring_service extends JModel
   }
   public function getStartAt() {
     if ($this->start_at == null) {
-      $this->start_at = date('Y-m-d');
+      $this->start_at = date('Y-m');
     }
     return $this->start_at;
   }
   public function setStartAt($value) {
-    if (strlen($value) != 10) {
-      $this->start_at = date('Y-m-d');
+    if (strlen($value) != 7) {
+      $this->start_at = date('Y-m');
     } else {
-      $this->start_at = date('Y-m-d', strtotime($value));
+      $this->start_at = $value;
     }
   }
   public function getMonthsToBill() {

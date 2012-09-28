@@ -26,6 +26,7 @@ class CimpayTableTransactions extends JTable
   public $order_invoice_number = '';
   public $billing_date = '';
   public $log_message = '';
+  public $recurring_customer_plan = null;
 
   /**
    * Constructor

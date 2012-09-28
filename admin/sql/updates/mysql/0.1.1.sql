@@ -7,9 +7,9 @@ CREATE TABLE `#__cimpay_recurring_services` (
   `name` varchar(100) NOT NULL,
   `description` TEXT NOT NULL DEFAULT '',
   `active` TINYINT(1) NOT NULL DEFAULT 1,
-  `start_at` DATE NOT NULL,
+  `start_at` VARCHAR(7) NOT NULL DEFAULT '2012-01',
   `months_to_bill` int(11) NOT NULL DEFAULT 1,
-  `total_cost` DECIMAL(19,4) NOT NULL,
+  `total_cost` DECIMAL(19,4) NOT NULL DEFAULT 0,
   `created_at` DATETIME NOT NULL,
   `updated_at` DATETIME NOT NULL,
    PRIMARY KEY  (`id`)

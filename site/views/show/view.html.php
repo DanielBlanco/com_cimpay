@@ -23,6 +23,7 @@ class CimpayViewShow extends JView
     
     // Retrieve the data.
     $this->items = $this->get('Items');
+    $this->packages = $this->get('Items', 'Recurring_packages');
     //$this->pagination = $this->get('Pagination');
 
     parent::display($tpl);

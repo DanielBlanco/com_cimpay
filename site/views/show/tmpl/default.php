@@ -17,12 +17,9 @@ defined('_JEXEC') or die('Restricted access');
   <form id="cimpay-buy-service" action="?option=com_cimpay" method="post" class="cimpay-form">
     <label for="cimpay-service">Service:</label>
     <select name="cimpay_service" id="cimpay-service">
-      <option value="0"></option>
-    </select>
-    <br/>
-    <label for="cimpay-service">Package:</label>
-    <select name="cimpay_package" id="cimpay-package">
-      <option value="0"></option>
+      <?php foreach ($this->packages as $i => $item): ?>
+        <option value="<?php echo $item->id ?>"><?php echo $item->service_name ?> - <?php echo $item->name ?></option>
+      <?php endforeach; ?>
     </select>
     <br/>
     <button type="submit" name="submit">Buy!</button>

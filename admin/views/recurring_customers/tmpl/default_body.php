@@ -11,6 +11,7 @@ defined('_JEXEC') or die('Restricted Access');
     <td><?php echo $item->id; ?></td>
     <td><?php echo $item->user_name; ?></td>
     <td><?php echo $item->user_email; ?></td>
+    <td><?php echo $item->service_name; ?></td>
     <td><?php echo $item->package_name; ?></td>
     <td><?php echo $item->months_paid; ?></td>
     <td style="text-align: center">

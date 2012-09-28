@@ -34,7 +34,7 @@ $data =& $this->getModel();
       <td>
         <input type="text" name="start_at" value="<?php echo $data->get('start_at') ?>" id="input-start-at" />
       </td>
-      <td>Date this service will be given to the customers (Format: YYYY-MM-DD).</td>
+      <td>Month this service will start billing (Format: YYYY-MM).</td>
     </tr>
     <tr>
       <td>

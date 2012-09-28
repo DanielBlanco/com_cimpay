@@ -12,6 +12,7 @@ class CimpayControllerRecurring_customers extends JController
 {
 
   function action_index() {
+    $rc = $this->getModel('Recurring_customer');
     $model = $this->getModel('Recurring_customers');
     $view =& $this->getView( 'recurring_customers', 'html' ); 
     $view->setModel( $model, true );

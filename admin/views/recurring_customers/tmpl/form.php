@@ -29,7 +29,7 @@ $data =& $this->getModel();
       <td>
         <select name="package_id" id="input-package">
           <?php foreach ($this->packages as $i => $item): ?>
-            <option value="<?php echo $item->id ?>"><?php echo $item->name ?></option>
+            <option value="<?php echo $item->id ?>"><?php echo $item->service_name ?> - <?php echo $item->name ?></option>
           <?php endforeach; ?>
         </select>
       </td>

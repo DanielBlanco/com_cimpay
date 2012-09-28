@@ -14,6 +14,7 @@ CREATE TABLE `#__cimpay` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `greeting` varchar(25) NOT NULL,
   `params` TEXT NOT NULL DEFAULT '',
+  `next_invoice_number` int(11) NOT NULL DEFAULT 1,
    PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
@@ -43,6 +44,7 @@ CREATE TABLE `#__cimpay_transactions` (
   `order_invoice_number` varchar(10) NOT NULL,
   `billing_date` varchar(10) NOT NULL,
   `log_message` TEXT NOT NULL DEFAULT '',
+  `recurring_customer_plan` int(11),
    PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
@@ -51,9 +53,9 @@ CREATE TABLE `#__cimpay_recurring_services` (
   `name` varchar(100) NOT NULL,
   `description` TEXT NOT NULL DEFAULT '',
   `active` TINYINT(1) NOT NULL DEFAULT 1,
-  `start_at` DATE NOT NULL,
+  `start_at` VARCHAR(7) NOT NULL DEFAULT '2012-01',
   `months_to_bill` int(11) NOT NULL DEFAULT 1,
-  `total_cost` DECIMAL(19,4) NOT NULL,
+  `total_cost` DECIMAL(19,4) NOT NULL DEFAULT 0,
   `created_at` DATETIME NOT NULL,
   `updated_at` DATETIME NOT NULL,
    PRIMARY KEY  (`id`)

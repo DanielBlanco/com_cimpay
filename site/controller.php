@@ -79,7 +79,7 @@ class CimpayController extends JController
   {
     $view =& $this->getView( 'show', 'html' ); 
     $view->setModel($this->getModel('Transactions'), true);
-
+    $view->setModel($this->getModel('Recurring_packages'));
     return $view;
   }
 

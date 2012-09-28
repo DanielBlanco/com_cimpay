@@ -34,7 +34,6 @@ class CimpayControllerRecurring_services extends JController
   }
 
   function action_save() {
-    $today = (String)date('Y-m-d');
     $model = $this->getModel( 'Recurring_service' );
     $cost_per_month = (float)JRequest::getVar('cost_per_month', 1.0);
     $months_to_bill = (int)JRequest::getVar('months_to_bill', 1);
@@ -47,7 +46,7 @@ class CimpayControllerRecurring_services extends JController
     $model->setName(JRequest::getVar('name'));
     $model->setDescription(JRequest::getVar('description'));
     $model->setActive(JRequest::getVar('active', 1));
-    $model->setStartAt(JRequest::getVar('start_at', $today));//2012-01-01
+    $model->setStartAt(JRequest::getVar('start_at', date('Y-m')));
     $model->setMonthsToBill($months_to_bill);
     $model->setTotalCost($total_cost);
     $model->setCreatedAt();
