@@ -14,11 +14,15 @@ TODO
 * Delete Transactions from transaction list.
 * Better validations for input data.
 * Fix: If the user is already in Authorize.net the application does not store the user in database.
+* If the recurring service already has transactions it cannot be updated.
+* If the recurring package already has transactions it cannot be updated.
+* Add delegate destroys for recurring models
 * ...
 
 Log:
 ----
-* [0.1.10] Added delegate destroys for recurring models
+* [0.1.11] Added two new columns to cimpay_transactions table. 
+* [0.1.10] Removed month count in recurring consumer index page.
 * [0.1.9] Added a new column to cimpay table to handle internal invoice numbers.
 * [0.1.8] Added a new column to cimpay_transactions table to handle better the payment plans.
 * [0.1.7] Added a recurring transaction builder.

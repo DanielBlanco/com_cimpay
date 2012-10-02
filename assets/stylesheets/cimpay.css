@@ -10,6 +10,15 @@
 .icon-32-recurring {
   background-image: url(../images/icon-32-recurring.png);
 }
+.icon-32-services {
+  background-image: url(../images/icon-32-services.png);
+}
+.icon-32-packages {
+  background-image: url(../images/icon-32-packages.png);
+}
+.icon-32-customers {
+  background-image: url(../images/icon-32-customers.png);
+}
 .icon-16-delete {
   min-height: 16px;
   min-width: 16px;
@@ -33,7 +42,7 @@
 }
 .cimpay-recurring-dashboard {
   margin: auto;
-  margin-top: 5%;
+  margin-top: 0%;
   width: 99%;
   border: 0 none;
   text-align: center;

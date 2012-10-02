@@ -21,9 +21,9 @@ class CimpayControllerRecurring extends JController
   }
 
   function dashboard() {
-    //$model = $this->getModel('Packages');
+    $model = $this->getModel('Recurring_dashboard');
     $view =& $this->getView( 'recurring', 'html' ); 
-    //$view->setModel( $model, true );
+    $view->setModel( $model, true );
     $view->displayDashboard();
   }
 

@@ -21,10 +21,4 @@ defined('_JEXEC') or die('Restricted Access');
   <th style="white-space: nowrap" width="20%">
     <?php echo JText::_('COM_CIMPAY_RECURRING_CUSTOMERS_HEADING_PACKAGE_NAME'); ?>
   </th>
-  <th style="white-space: nowrap" width="15%">
-    <?php echo JText::_('COM_CIMPAY_RECURRING_CUSTOMERS_HEADING_MONTHS_PAID'); ?>
-  </th>
-  <th style="white-space: nowrap" width="10%">
-    <?php echo JText::_('COM_CIMPAY_RECURRING_PACKAGES_HEADING_ACTIONS'); ?>
-  </th>
 </tr>

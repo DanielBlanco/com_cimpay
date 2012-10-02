@@ -27,8 +27,8 @@ class CimpayModelRecurring_packages extends JModelList
 
     $query->select("rp.*, rs.name as 'service_name', rs.description as 'service_description'");
     $query->from('#__cimpay_recurring_packages rp, #__cimpay_recurring_services rs');
-    $query->where('rp.service_id = rs.id');
-    $query->order('rp.active');
+    $query->where('rp.service_id = rs.id and rp.active = 1 and rs.active = 1');
+    $query->order('rs.name, rp.name');
 
     return $query;
   }

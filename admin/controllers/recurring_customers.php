@@ -40,15 +40,18 @@ class CimpayControllerRecurring_customers extends JController
     $model = $this->getModel( 'Recurring_customer' );
 
     $id = (int)JRequest::getVar('id','0','post','INTEGER');
+    $customer_id = (int)JRequest::getVar('customer_id', 0,'post','INTEGER');
+    $package_id = (int)JRequest::getVar('package_id', 0,'post','INTEGER');
     if ($id > 0) {
       $model->load($id);
     }
-    $model->setCustomerId((int)JRequest::getVar('customer_id', 0,'post','INTEGER'));
-    $model->setPackageId((int)JRequest::getVar('package_id', 0,'post','INTEGER'));
+    $model->setCustomerId($customer_id);
+    $model->setPackageId($package_id);
     $model->setCreatedAt();
     $model->setUpdatedAt();
 
-    if ($model->save()) {
+    $skip_update = true;
+    if ($model->save($skip_update)) {
       $this->setRedirect( JRoute::_('index.php?option=com_cimpay&task=recurring_customers.action_index', false) );
     } else {
       $view =& $this->getView( 'recurring_customers', 'html' ); 

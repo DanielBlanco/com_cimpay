@@ -29,6 +29,8 @@ class CimpayModelTransaction extends JModel
   protected $billing_date = '';
   protected $log_message = '';
   protected $recurring_customer_plan = null;
+  protected $recurring_service_id = null;
+  protected $recurring_service_months_paid = 0;
 
   /**
    * Returns a reference to the a Table object, always creating it.
@@ -47,7 +49,8 @@ class CimpayModelTransaction extends JModel
       'id','status','customer_id','amount','shipping_amount','shipping_name',
       'shipping_description','item_id','item_name','item_description',
       'item_quantity','item_unit_price','order_invoice_number', 'billing_date',
-      'log_message', 'recurring_customer_plan'
+      'log_message', 'recurring_customer_plan', 'recurring_service_id',
+      'recurring_service_months_paid'
     );
     foreach ($props as $var) {
       $record->$var = $this->$var;
@@ -177,5 +180,17 @@ class CimpayModelTransaction extends JModel
   }
   public function setRecurringCustomerPlan($value) {
     $this->recurring_customer_plan = $value;
+  }
+  public function getRecurringServiceId() {
+    return $this->recurring_service_id;
+  }
+  public function setRecurringServiceId($value) {
+    $this->recurring_service_id = $value;
+  }
+  public function getRecurringServiceMonthsPaid() {
+    return $this->recurring_service_months_paid;
+  }
+  public function setRecurringServiceMonthsPaid($value) {
+    $this->recurring_service_months_paid = $value;
   }
 }

@@ -23,6 +23,9 @@ class CimpayViewRecurring extends JView
       return false;
     }
     
+    $this->items = $this->get('Items');
+    $this->pagination = $this->get('Pagination');
+
     // Set the toolbar
     JRequest::setVar('hidemainmenu', false);
     JToolBarHelper::title(JText::_('COM_CIMPAY_RECURRING_INDEX'), 'cimpay');
@@ -54,12 +57,15 @@ class CimpayViewRecurring extends JView
     }
 
     // Retrieve the data.
-    //$this->items = $this->get('Items');
-    //$this->pagination = $this->get('Pagination');
+    $this->items = $this->get('Items');
+    $this->pagination = $this->get('Pagination');
     
     // Set the toolbar
     JRequest::setVar('hidemainmenu', true);
     JToolBarHelper::title(JText::_('COM_CIMPAY_RECURRING_DASHBOARD'), 'cimpay');
+    JToolBarHelper::custom( 'recurring_services.action_index', 'services.png', 'services.png', 'Services', false, false );
+    JToolBarHelper::custom( 'recurring_packages.action_index', 'packages.png', 'packages.png', 'Packages', false, false ); 
+    JToolBarHelper::custom( 'recurring_customers.action_index', 'customers.png', 'customers.png', 'Customers', false, false ); 
     JToolBarHelper::cancel('recurring.cancel', 'JTOOLBAR_CLOSE');
     JToolBarHelper::preferences('com_cimpay');
 
@@ -70,4 +76,24 @@ class CimpayViewRecurring extends JView
     $document->setTitle(JText::_('COM_CIMPAY_RECURRING_DASHBOARD'));
   }
 
+  function getServiceStatus($service_id) {
+    $model = $this->getModel();
+    $status = $model->getServiceStatus($service_id);
+    if ($status == 0) {
+      return '<span style="font-weight: bold;color:green">OK</span>';
+    } else {
+      return '<span style="font-weight: bold;color:red">Overdue</span>';
+    }
+  }
+
+  function getMonthsCollected($service_id) {
+    $model = $this->getModel();
+    return $model->getMonthsCollected($service_id);
+  }
+
+  function getMonthsWithTransaction($service_id) {
+    $model = $this->getModel();
+    return $model->getMonthsWithTransaction($service_id);
+  }
+  
 }

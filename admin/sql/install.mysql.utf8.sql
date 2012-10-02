@@ -45,6 +45,8 @@ CREATE TABLE `#__cimpay_transactions` (
   `billing_date` varchar(10) NOT NULL,
   `log_message` TEXT NOT NULL DEFAULT '',
   `recurring_customer_plan` int(11),
+  `recurring_service_id` int(11),
+  `recurring_service_months_paid` int(11) NOT NULL DEFAULT 0,
    PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 

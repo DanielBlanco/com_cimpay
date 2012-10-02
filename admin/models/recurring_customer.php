@@ -44,11 +44,20 @@ class CimpayModelRecurring_customer extends JModel
   /**
    * Save the record.
    */
-  public function save() {
+  public function save($skip_update = false) {
+    if ($this->id) {
+      if ($skip_update) {
+        return true;
+      } else {
+        $this->destroy(array($id));
+      }
+    }
+
     $record =& $this->getTable();
     $props = array(
       'id','customer_id','package_id','months_paid','created_at','updated_at'
     );
+
     foreach ($props as $var) {
       $record->$var = $this->$var;
     }
@@ -105,7 +114,8 @@ class CimpayModelRecurring_customer extends JModel
         $sql = "INSERT INTO #__cimpay_transactions (";
         $sql.= "customer_id, amount, shipping_amount, shipping_name, shipping_description,";
         $sql.= "item_id, item_name, item_description, item_quantity, item_unit_price,";
-        $sql.= "item_taxable,order_invoice_number,billing_date,recurring_customer_plan";
+        $sql.= "item_taxable,order_invoice_number,billing_date,recurring_customer_plan,";
+        $sql.= "recurring_service_id, recurring_service_months_paid";
         $sql.= ") VALUES ";
 
         $trans_index = 0;
@@ -130,9 +140,11 @@ class CimpayModelRecurring_customer extends JModel
           $sql.= "1,";                          //item_quantity
           $sql.= $amount.",";                   //item_unit_price
           $sql.= "0,";                          //item_taxable
-          $sql.= "'".$next_invoice_number."',";//order_invoice_number
+          $sql.= "'".$next_invoice_number."',"; //order_invoice_number
           $sql.= "'".$billing_date."',";        //billing_date
-          $sql.= $recurring_customer_plan;      //recurring_customer_plan
+          $sql.= $recurring_customer_plan.",";  //recurring_customer_plan
+          $sql.= $service_id.',';               //recurring_service_id
+          $sql.= $months_to_pay;                //recurring_service_months_paid
           $sql.= ")";
 
           $next_invoice_number++;
@@ -161,8 +173,27 @@ class CimpayModelRecurring_customer extends JModel
    * Destroy the received records.
    */
   public function destroy($ids) {
+    $db = JFactory::getDBO();
     $record =& $this->getTable();
     foreach($ids as $id) {
+      //Destroy the dependent transactions.
+      //But do not delete delete collected transactions.
+      $sql = "delete from #__cimpay_transactions where status = 0 and recurring_customer_plan = ".$id.";";
+      $db->setQuery($sql);
+      $result = $db->query();
+      if (!$result) {
+        $this->setError( $result->getErrorMsg() );
+        return false;
+      }
+      // Remove the associated customer package from collected transactions.
+      $sql = "update #__cimpay_transactions set recurring_customer_plan = NULL where recurring_customer_plan = ".$id.";";
+      $db->setQuery($sql);
+      $result = $db->query();
+      if (!$result) {
+        $this->setError( $result->getErrorMsg() );
+        return false;
+      }
+
       if (!$record->delete($id)) {
         $this->setError( $record->getErrorMsg() );
         return false;
