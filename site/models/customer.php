@@ -158,6 +158,13 @@ class CimpayModelCustomer extends JModel
     }
   }
  
+  public function getId() {
+    return $this->id;
+  }
+  public function setId($value) {
+    $this->id = $value;
+  }
+
   /**
    * Get the user id
    * @return string The user id.

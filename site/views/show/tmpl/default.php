@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
   </br>
   </br>
   <h2>Services Available:</h2>
-  <form id="cimpay-buy-service" action="?option=com_cimpay" method="post" class="cimpay-form">
+  <form id="cimpay-buy-service" action="index.php" method="post" class="cimpay-form">
     <label for="cimpay-service">Service:</label>
     <select name="cimpay_service" id="cimpay-service">
       <?php foreach ($this->packages as $i => $item): ?>
@@ -23,6 +23,12 @@ defined('_JEXEC') or die('Restricted access');
     </select>
     <br/>
     <button type="submit" name="submit">Buy!</button>
+    <div>
+      <input type="hidden" name="customer" value=""/>
+      <input type="hidden" name="option" value="com_cimpay"/>
+      <input type="hidden" name="task" value="buy_service" />
+      <?php echo JHtml::_('form.token'); ?>
+    </div>
   </form>
   <br/>
   <p>

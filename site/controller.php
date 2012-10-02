@@ -91,4 +91,28 @@ class CimpayController extends JController
     return $view;
   }
 
+  function buy_service() {
+    $user=& JFactory::getUser();
+    $customer = $this->getModel( 'Customer' );
+    $customer->loadByUserId($user->id);
+
+    if ($customer->getId()) {
+      $package_id = (int)JRequest::getVar('cimpay_service', 0,'post','INTEGER');
+
+      $model = $this->getModel( 'Recurring_customer' );
+      $model->setCustomerId($customer->getId());
+      $model->setPackageId($package_id);
+      $model->setCreatedAt();
+      $model->setUpdatedAt();
+
+      if ($model->save(true)) {
+        $this->setRedirect( JRoute::_('index.php?option=com_cimpay&task=show', false) );
+      } else {
+        $this->setRedirect( JRoute::_('index.php?option=com_cimpay&task=show', false), "Couldn't process the transaction." );
+      }
+    } else {
+      $this->setRedirect( JRoute::_('index.php?option=com_cimpay&task=show', false), "Couldn't process the transaction." );
+    }
+  }
+
 }
