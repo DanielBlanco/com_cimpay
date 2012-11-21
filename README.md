@@ -21,6 +21,7 @@ TODO
 
 Log:
 ----
+* [0.1.14] Adding support to filter services in the fron end by tag.
 * [0.1.13] Added the necessary backend code to handle the new 'tag' column.
 * [0.1.12] Added a new 'tag' column to cimpay_recurring_services table. 
 * [0.1.11] Added two new columns to cimpay_transactions table. 
