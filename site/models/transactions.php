@@ -21,13 +21,15 @@ class CimpayModelTransactions extends JModelList
    */
   protected function getListQuery() 
   {
+    $user=& JFactory::getUser();
+    
     // Create a new query object.
     $db = JFactory::getDBO();
     $query = $db->getQuery(true);
 
     $query->select('u.email, u.name, t.*');
     $query->from('#__cimpay_transactions t, #__cimpay_customers c, #__users u');
-    $query->where('u.id = c.user_id and c.id = t.customer_id');
+    $query->where('u.id = c.user_id and c.id = t.customer_id and c.user_id = '.$user->id);
     $query->order('t.status');
 
     return $query;

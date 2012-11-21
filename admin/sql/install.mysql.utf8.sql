@@ -58,6 +58,7 @@ CREATE TABLE `#__cimpay_recurring_services` (
   `start_at` VARCHAR(7) NOT NULL DEFAULT '2012-01',
   `months_to_bill` int(11) NOT NULL DEFAULT 1,
   `total_cost` DECIMAL(19,4) NOT NULL DEFAULT 0,
+  `tag` varchar(25) NOT NULL DEFAULT '',
   `created_at` DATETIME NOT NULL,
   `updated_at` DATETIME NOT NULL,
    PRIMARY KEY  (`id`)

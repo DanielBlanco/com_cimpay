@@ -19,6 +19,7 @@ class CimpayModelRecurring_service extends JModel
   protected $start_at = null;     //VARCHAR(7) => YYYY-MM
   protected $months_to_bill = 1;  //INT(11)
   protected $total_cost = 0.0000; //DECIMAL(19,4)
+  protected $tag = '';            //VARCHAR(25)
   protected $created_at = null;   //DATETIME
   protected $updated_at = null;   //DATETIME
 
@@ -44,6 +45,7 @@ class CimpayModelRecurring_service extends JModel
       $this->start_at = $record->start_at;
       $this->months_to_bill = $record->months_to_bill;
       $this->total_cost = $record->total_cost;
+      $this->tag = $record->tag;
       $this->created_at = $record->created_at;
       $this->updated_at = $record->updated_at;
     }
@@ -56,7 +58,7 @@ class CimpayModelRecurring_service extends JModel
     $record =& $this->getTable();
     $props = array(
       'id','name','description','active','start_at','months_to_bill',
-      'total_cost','created_at','updated_at'
+      'total_cost','tag','created_at','updated_at'
     );
     foreach ($props as $var) {
       $record->$var = $this->$var;
@@ -133,6 +135,12 @@ class CimpayModelRecurring_service extends JModel
   }
   public function setTotalCost($value) {
     $this->total_cost = $value;
+  }
+  public function getTag() {
+    return $this->tag;
+  }
+  public function setTag($value) {
+    $this->tag = $value;
   }
   public function getCreatedAt() {
     return $this->created_at;

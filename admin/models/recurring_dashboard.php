@@ -33,12 +33,13 @@ class CimpayModelRecurring_dashboard extends JModelList
     $customer_select = "c.user_id, u.email as 'user_email', u.name as 'user_name'";
     $service_select = "rs.id as 'service_id', rs.name as 'service_name', rs.months_to_bill as 'service_duration', rs.total_cost as 'service_total_cost'";
 
-    $where = "t.recurring_service_id = rs.id";
-    $where.= "and t.customer_id = c.id";
-    $where.= "and u.id = c.user_id";
+    $where = "t.recurring_service_id = rs.id ";
+    $where.= "and t.customer_id = c.id ";
+    $where.= "and u.id = c.user_id ";
     
     $query->select($customer_select.",".$service_select);
     $query->from($tables);
+    $query->where($where);
     $query->group('t.recurring_service_id');
 
     return $query;

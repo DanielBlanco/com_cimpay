@@ -49,6 +49,7 @@ class CimpayControllerRecurring_services extends JController
     $model->setStartAt(JRequest::getVar('start_at', date('Y-m')));
     $model->setMonthsToBill($months_to_bill);
     $model->setTotalCost($total_cost);
+    $model->setTag(JRequest::getVar('tag'));
     $model->setCreatedAt();
     $model->setUpdatedAt();
 

@@ -66,6 +66,15 @@ $data =& $this->getModel();
       </td>
       <td>If the service is active it is available for purchase.</td>
     </tr>
+    <tr>
+      <td>
+        <label for="input-tag">TAG:</label>
+      </td>
+      <td>
+        <input type="text" name="tag" value="<?php echo $data->get('tag') ?>" id="input-tag" maxlength="25" />
+      </td>
+      <td>Helps describe an item and allows service filtering (separate tags by space).</td>
+    </tr>
   </table>
   <div>
     <input type="hidden" name="id" value="<?php echo $data->get('id') ?>" />

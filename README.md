@@ -21,6 +21,8 @@ TODO
 
 Log:
 ----
+* [0.1.13] Added the necessary backend code to handle the new 'tag' column.
+* [0.1.12] Added a new 'tag' column to cimpay_recurring_services table. 
 * [0.1.11] Added two new columns to cimpay_transactions table. 
 * [0.1.10] Removed month count in recurring consumer index page.
 * [0.1.9] Added a new column to cimpay table to handle internal invoice numbers.
