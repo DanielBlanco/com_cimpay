@@ -87,4 +87,12 @@ class CimpayViewRecurring_services extends JView
   }
 
 
+  function getActiveStatus($status) {
+    if ($status == 0) {
+      return '<span style="font-weight: bold;color:red">Inactive</span>';
+    } else {
+      return '<span style="font-weight: bold;color:green">Active</span>';
+    }
+  }
+
 }

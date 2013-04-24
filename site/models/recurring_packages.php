@@ -44,7 +44,7 @@ class CimpayModelRecurring_packages extends JModelList
     $query->select("rp.*, rs.name as 'service_name', rs.description as 'service_description', rs.months_to_bill, rs.total_cost");
     $query->from('#__cimpay_recurring_packages rp, #__cimpay_recurring_services rs');
     $query->where("rp.service_id = rs.id and rp.active = 1 and rs.active = 1 and rs.tag REGEXP '[[:<:]]".$tag."[[:>:]]'");
-    $query->order('rs.name, rp.name');
+    $query->order('rs.id, rp.id');
 
     $items  = $this->_getList($query, $this->getStart(), $this->getState('list.limit'));
 

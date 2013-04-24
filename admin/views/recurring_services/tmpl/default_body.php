@@ -11,7 +11,7 @@ defined('_JEXEC') or die('Restricted Access');
     <td><?php echo $item->id; ?></td>
     <td><?php echo $item->name; ?></td>
     <td><?php echo $item->description; ?></td>
-    <td><?php echo $item->active == 1 ? 'Active' : 'Inactive'; ?></td>
+    <td><?php echo $this->getActiveStatus($item->active); ?></td>
     <td><?php echo $item->start_at; ?></td>
     <td><?php echo $item->months_to_bill; ?></td>
     <td><?php echo $item->total_cost; ?></td>

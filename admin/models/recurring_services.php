@@ -27,7 +27,7 @@ class CimpayModelRecurring_services extends JModelList
 
     $query->select('*');
     $query->from('#__cimpay_recurring_services');
-    $query->order('active');
+    $query->order('active, id');
 
     return $query;
   }
